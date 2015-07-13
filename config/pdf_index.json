@@ -1,0 +1,40 @@
+{
+    "mappings": {
+        "pdf_doc": {
+            "properties": {
+                "filesystem_readability": {
+                    "type": "string",
+                    "store": true,
+                    "index": "not_analyzed"
+                },
+                "filesystem_modification_date": {
+                    "type": "date",
+                    "store": true,
+                    "format": "date_time_no_millis",
+                    "index": "not_analyzed"
+                },
+                "filesystem_creation_date": {
+                    "type": "date",
+                    "format": "date_time_no_millis",
+                    "store": true,
+                    "index": "not_analyzed"
+                },
+                "filesystem_size": {
+                    "type": "string",
+                    "store": true,
+                    "index": "not_analyzed"
+                }
+            }
+        },
+        "pdf_page": {
+            "_parent": {
+                "type": "pdf_doc"
+            },
+            "properties": {
+                "content": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
